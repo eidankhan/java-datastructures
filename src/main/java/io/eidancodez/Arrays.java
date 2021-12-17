@@ -3,10 +3,12 @@ package io.eidancodez;
 public class Arrays {
 
     public static void main(String[] args) {
-        int[] array = {5,1,8,4,10,7,9};
-        secondLargest(array);
-        replaceElementWithProductOfEveryOtherElement(array);
-        rotateArrayByOne(array);
+        // int[] array = {5,1,8,4,10,7,9};
+        // secondLargest(array);
+        // replaceElementWithProductOfEveryOtherElement(array);
+        // rotateArrayByOne(array);
+        int[] repeatativeArray = {1,4,3,2,3,5,2,1,3,2,2};
+        System.out.println(findMostRepeatativeNumber(repeatativeArray));
     }
     public static int secondLargest(int[] array){
         int secondMax = array[0];
@@ -60,6 +62,26 @@ public class Arrays {
         for(int x: array)
             System.out.print(x+" ");
     }
+
+    // Find most repeatative number in array
+    public static Integer findMostRepeatativeNumber(int[] array){
+        int mostRepeatativeNumber = array[0];
+        int maxCount = 1;
+        for(int x=0; x<array.length; x++){
+            int counter = 1;
+            for(int y=x+1; y<array.length; y++){
+                if(array[x] == array[y])
+                    ++counter;
+            }
+            if(maxCount < counter)
+            {
+                maxCount = counter;
+                mostRepeatativeNumber = array[x];
+            }
+        }
+        return mostRepeatativeNumber;
+    }
+
 
 
 }
