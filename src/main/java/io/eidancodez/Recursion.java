@@ -1,19 +1,13 @@
 package io.eidancodez;
 
-import java.util.Vector;
-
 public class Recursion {
-    private static String reverseOfText;
 
-    
     public static void main(String[] args) {
         int n = 5;
         System.out.print("Sum of first "+n+" numbers ");
         System.out.println(" is "+sum(n));
         System.out.println("Reverse:"+reverse("My name is Khan"));
-       
-        
-       
+     
     }
 
     // Print sum of first n natural numbers 
@@ -34,5 +28,5 @@ public class Recursion {
         else
             return reverse(text.substring(1))+text.charAt(0);
     }
-   
+
 }
