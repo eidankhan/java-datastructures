@@ -3,12 +3,13 @@ package io.eidancodez;
 public class Arrays {
 
     public static void main(String[] args) {
-        // int[] array = {5,1,8,4,10,7,9};
+        int[] array = {5,1,8,4,10,7,9};
         // secondLargest(array);
         // replaceElementWithProductOfEveryOtherElement(array);
         // rotateArrayByOne(array);
-        int[] repeatativeArray = {1,4,3,2,3,5,2,1,3,2,2};
-        System.out.println(findMostRepeatativeNumber(repeatativeArray));
+        // int[] repeatativeArray = {1,4,3,2,3,5,2,1,3,2,2};
+        // System.out.println(findMostRepeatativeNumber(repeatativeArray));
+        findPairWithMaxProduct(array);
     }
     public static int secondLargest(int[] array){
         int secondMax = array[0];
@@ -82,6 +83,22 @@ public class Arrays {
         return mostRepeatativeNumber;
     }
 
+    public static void findPairWithMaxProduct(int[] array){
+        int maxProduct = 1;
+        int firstPair = array[0];
+        int secondPair = array[1];
+        for(int x=0; x<array.length; x++){
+            for(int y=x+1; y<array.length; y++){
+                if(maxProduct < array[x]*array[y])
+                {
+                    maxProduct = array[x]*array[y];
+                    firstPair = array[x];
+                    secondPair = array[y];
+                }
+            }
+        }
+        System.out.println("The pair with max product "+maxProduct +" is ("+firstPair+","+secondPair+").");
+    }
 
 
 }
