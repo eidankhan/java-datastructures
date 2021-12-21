@@ -1,5 +1,8 @@
 package io.eidancodez;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Arrays {
 
     public static void main(String[] args) {
@@ -9,7 +12,10 @@ public class Arrays {
         // rotateArrayByOne(array);
         // int[] repeatativeArray = {1,4,3,2,3,5,2,1,3,2,2};
         // System.out.println(findMostRepeatativeNumber(repeatativeArray));
-        findPairWithMaxProduct(array);
+        // findPairWithMaxProduct(array);
+        // sortArray(array);
+        int[] arr = {1, 5, 2, 2, 2, 5, 5, 4};
+        findPairsWithKDifference(arr, 3);
     }
     public static int secondLargest(int[] array){
         int secondMax = array[0];
@@ -100,5 +106,32 @@ public class Arrays {
         System.out.println("The pair with max product "+maxProduct +" is ("+firstPair+","+secondPair+").");
     }
 
+    public static void sortArray(int[] array){
+        for(int i=0; i<array.length; i++){
+            for(int j=i+1; j<array.length; j++){
+                if(array[j]%2==0){
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
+                }
+            }
+        }
+        for(int x:array)
+            System.out.print(x+" ");
+    }
 
+    public static void findPairsWithKDifference(int[] array, int difference){
+        Set<String> pairs = new HashSet<>();
+        for(int i=0; i<array.length; i++){
+            for(int j=i+1; j<array.length; j++){
+                if((array[j]-array[i]) == difference)
+                {   
+                    pairs.add("("+array[i]+","+array[j]+")");
+                }
+            }
+        }
+        System.out.println("Pairs with difference "+difference+" are:");
+        for(String s : pairs)
+            System.out.println(s);
+    }
 }
